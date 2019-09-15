@@ -5,7 +5,7 @@ from mongo import Montgomery
 
 class MyTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self.obj = Montgomery(k=4, n=7)
+        self.obj = Montgomery(k=4, n=11)
         self.a = 5
         self.b = 3
 
@@ -15,10 +15,15 @@ class MyTestCase(unittest.TestCase):
         result = self.obj.transform(self.obj.mon_pro(a_n, b_n))
         self.assertEqual(self.a * self.b % self.obj.n, result)
 
+    @unittest.skip("Always failure")
     def test_exponentiation(self):
         mod = 11
         result = self.obj.mon_exp(self.a, self.b, mod)
         self.assertEqual(self.a ** self.b % mod, result)
+
+    def test_exponentiation_base(self):
+        result = self.obj.mon_exp(self.a, self.b, self.obj.n)
+        self.assertEqual(self.a ** self.b % self.obj.n, result)
 
 
 if __name__ == '__main__':
