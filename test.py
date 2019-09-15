@@ -17,8 +17,9 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(result, self.a * self.b % self.obj.n)
 
     def test_exponentiation(self):
-        result = self.obj.mon_exp(self.a, self.b, 9)
-        self.assertEqual(result, self.a ** self.b % 9)
+        mod = 11
+        result = self.obj.mon_exp(self.a, self.b, mod)
+        self.assertEqual(result, self.a ** self.b % mod)
 
 
 if __name__ == '__main__':
