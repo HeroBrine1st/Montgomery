@@ -7,6 +7,7 @@ def euclide_ext(a, b):  # Расширенный алгоритм евклида
         y, yy = yy, y - yy * q
     return x, y, a
 
+
 def get_bit(num, pos):
     return (num & (1 << pos)) >> pos
 
