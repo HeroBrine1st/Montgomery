@@ -5,9 +5,9 @@ from mongo import Montgomery
 
 class MyTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self.obj = Montgomery(k=4, n=11)
-        self.a = 5
-        self.b = 3
+        self.obj = Montgomery(k=6, n=37)
+        self.a = 52
+        self.b = 35
 
     def test_multiply(self):
         a_n = self.obj.reminder(self.a)
